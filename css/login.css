@@ -1,4 +1,4 @@
-.header{
+.header,.banner,.footer{
     width: 990px;
     margin: 0 auto;
 }
@@ -55,9 +55,281 @@
     padding:10px 0;
     color: #999;
 }
-.header>p>a{
+.headWrap>p>span{
+    margin-right: 5px;
+}
+.headWrap>p a{
     color: #333;
 }
-.header>p>a:hover{
+.headWrap>p a:hover{
     text-decoration: underline;
+}
+/* content */
+.bannerWrap{
+    background-color: #2907B5;
+}
+.banner{
+    background: url(../img/login_bj01.jpg);
+    height: 475px;
+    position: relative;
+}
+#loginForm{
+    width: 346px;
+    background: #fff;
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
+#loginForm .warning{
+    padding: 10px 0;
+    font-size: 12px;
+    background: #fff8f0;
+    text-align: center;
+    color: #999;
+    line-height: 1;
+}
+#loginForm .icon-jinggao{
+    display: inline-block;
+    /* margin-top: 5px; */
+    margin-right: 5px;
+    color: #9F9F9E;
+}
+.loginTit{
+    padding: 18px;
+    text-align: center;
+    border-bottom: 1px solid #f4f4f4;
+}
+.loginTit p{
+    float: left;
+    width: 50%;
+    font-size: 18px; 
+    color: #666;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.loginTit>p:nth-of-type(1){
+    border-right: 1px solid #f4f4f4;
+}
+.loginTit>p:hover,.loginTit>p.hover{
+    font-weight: 900;
+    color: #e4393c;
+}
+/* 登录 */
+#loginType{
+    border-bottom: 1px solid #f4f4f4;
+    position: relative;
+}
+/* 二维码登录 */
+#codeLo{
+    text-align: center;
+    /* display: none; */
+}
+#codeImg{
+    height: 210px;
+    position: relative;
+}
+#codeImg img:nth-of-type(1){
+    position: absolute;
+    top: 20px;
+    left: 84px;
+    border: 1px solid #f4f4f4;
+    padding: 8px 12px;
+}
+#codeImg img:nth-of-type(2){
+    position: absolute;
+    top: 18px;
+    right: 0;
+    display: none;
+}
+#codeImg>div{
+    width: 170px;
+    height: 165px;
+    background: rgba(0, 0, 0, .6);
+    position: absolute;
+    top: 20px;
+    left: 84px;
+    text-align: center;
+    display: none;
+}
+#codeImg>div>p{
+    margin-top: 57px;
+    font-size: 16px;
+    color: #fff;
+}
+#codeImg>div>button{
+    margin-top: 24px;
+    height: 30px;
+    width: 80px;
+    background: #e4393c;
+    color: #fff;
+    font-size: 14px;
+}
+#codeLo>p{
+    color: #666;
+    font-family: "宋体";
+}
+#codeLo>p>a{
+    color: #e4393c;
+    margin-right: 10px;
+}
+#codeLo>ul{
+    width: 266px;
+    height: 25px;
+    margin: 16px 0 20px 60px;
+}
+#codeLo>ul li{
+    float: left;
+    width: 68px;
+    height: 25px;
+    color: #999;
+    margin-right: 18px;
+    /* font-size: 16px; */
+    font-family: "宋体";
+}
+#codeLo>ul>li>span{
+    font-size: 23px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+#codeLo>ul>li>i{
+    display: inline-block;
+    vertical-align: middle;
+}
+.form-bottom{
+    background: #fcfcfc;
+}
+.form-bottom ul li{
+    float: left;
+    line-height: 50px;
+    /* width: 76px; */
+    text-align: center;
+    color: #666;
+}
+.form-bottom ul li:first-child{
+    margin-left: 24px;
+}
+.form-bottom ul li:last-child{
+    float: right;
+    margin-right: 15px;
+}
+.form-bottom li b{
+    width: 19px;
+    height: 18px;
+    display: inline-block;
+    background-image: url(../img/QQ-weixin.png);
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.form-bottom li span{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.form-bottom li:nth-of-type(2) b{
+    background-position-x: -19px;
+}
+.form-bottom li:nth-of-type(3) b{
+    background: url(../img/pwd-icons-new.png) -101px -75px;
+}
+.form-bottom li:nth-of-type(3) a{
+    font-size: 15px;
+    color: #b61d1d;
+}
+.form-bottom li>a:hover span{
+    text-decoration: underline;
+    color: #b61d1d;
+}
+.form-bottom .line{
+    padding: 0 10px;
+    color: #ccc;
+}
+/* 账户登录 */
+#accountLo{
+    padding: 33px 20px 30px;
+    display: none;
+}
+#accountLo>div{
+    margin-bottom: 20px;
+}
+#accountLo>div:not(.noborder){
+    width: 304px;
+    height: 38px;
+    border: 1px solid #bdbdbd;
+    position: relative;
+    
+}
+
+#accountLo>div>label{
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+    background: url(../img/pwd-icons-new.png);
+    border-right: 1px solid #bdbdbd;
+    vertical-align: middle;
+}
+#accountLo>div:nth-of-type(2)>label{
+    background-position-x: -48px;
+}
+#accountLo>div>input{
+    vertical-align: middle;
+    text-indent: 1rem;
+    font-size: 14px;
+    width: 254px;
+    height: 18px;
+}
+#accountLo>div>span{
+    height: 14px;
+    width: 14px;
+    background: url(../img/pwd-icons-new.png) -25px -143px;
+    position: absolute;
+    top: 12px;
+    right: 6px;
+    display: none;
+}
+
+#accountLo>div>label.focus{
+    background-position-y: -222px;
+}
+#accountLo>div:nth-of-type(3) a{
+    float: right;
+    color: #666;
+}
+#accountLo>div:nth-of-type(3) a:hover{
+    text-decoration: underline;
+    color: #e4393c;
+}
+#accountLo>div:nth-of-type(4){
+    margin-bottom: 10px;
+    border: 1px solid #e85356;
+}
+#accountLo button{
+    background: #e4393c; 
+    
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+}
+/* footer */
+.footer{
+    text-align: center;
+    padding-bottom: 30px;
+}
+.links{
+    margin-top: 20px;
+}
+.links a{
+    display: inline-block;
+    margin: 0 10px;
+    color: #666;
+}
+.links a:hover{
+    text-decoration: underline;
+    color: #b61d1d;
+}
+.copyright{
+    margin: 10px 0;
+    color: #666;
 }
