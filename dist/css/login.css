@@ -1,0 +1,63 @@
+.header{
+    width: 990px;
+    margin: 0 auto;
+}
+/* header */
+.header{
+    overflow: hidden;
+}
+.logo{
+    margin: 10px 0;
+    height: 60px;
+    width: 300px;
+    position: relative;
+    float: left;
+}
+.logo>a>img{
+    float: left;
+    height: 60px;
+}
+.logo>p{
+    float: left;
+    height: 40px;
+    width: 110px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 23px;
+    color: #3a3a3a;
+    line-height: 40px;
+}
+.header>div{
+    float: right;
+    margin-top: 52px;
+    line-height: 1;
+}
+.header>div>.icon-xiaoxi{
+    color: #e4393c;
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.header>div a{
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    color: #999;
+}
+.header>div a:hover{
+    color: #e4393c;
+    text-decoration: underline;
+}
+.headWrap>p{
+    text-align: center;
+    background-color: #fff8f0;
+    padding:10px 0;
+    color: #999;
+}
+.header>p>a{
+    color: #333;
+}
+.header>p>a:hover{
+    text-decoration: underline;
+}
