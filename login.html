@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="font/iconfont.css">
     <link rel="stylesheet" href="css/login.css">
+    <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/login.js"></script>
 </head>
 
 <body>
@@ -60,6 +62,7 @@
                         </div>
                         <!-- 账户登录方式 -->
                         <div id="accountLo">
+                            <p id="error-note"><b></b><span></span></p>
                             <div>
                                 <label for="username"></label>
                                 <input type="text" id="username" placeholder="邮箱/用户名/登录手机">
@@ -71,7 +74,7 @@
                                 <span></span>
                             </div>
                             <div class="noborder clean"><a href="https://aq.jd.com/process/findPwd?s=1" target="_blank">忘记密码</a></div>
-                            <div><button>登&nbsp;&nbsp;&nbsp;&nbsp;录</button></div>
+                            <div id="loginBtn"><button>登&nbsp;&nbsp;&nbsp;&nbsp;录</button></div>
                         </div>
                     </div>
                     <div class="form-bottom">

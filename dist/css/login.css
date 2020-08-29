@@ -183,7 +183,6 @@
     height: 25px;
     color: #999;
     margin-right: 18px;
-    /* font-size: 16px; */
     font-family: "宋体";
 }
 #codeLo>ul>li>span{
@@ -202,7 +201,6 @@
 .form-bottom ul li{
     float: left;
     line-height: 50px;
-    /* width: 76px; */
     text-align: center;
     color: #666;
 }
@@ -246,8 +244,30 @@
 }
 /* 账户登录 */
 #accountLo{
-    padding: 33px 20px 30px;
+    padding: 0 20px 30px;
     display: none;
+}
+#error-note{
+    margin: 5px 0;
+    height: 20px;
+    padding: 3px 10px;
+    background-color: #FFEBEB;
+    border: 1px solid #FACCC6;
+    visibility: hidden;
+}
+#error-note>b{
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    margin-right: 15px;
+    background: url(../img/pwd-icons-new.png) -104px -49px no-repeat;
+}
+#error-note>span{
+    display: inline-block;
+    vertical-align: middle;
+    color: #e4393c;
+    line-height: 1;
 }
 #accountLo>div{
     margin-bottom: 20px;
@@ -285,11 +305,22 @@
     position: absolute;
     top: 12px;
     right: 6px;
+    cursor: pointer;
     display: none;
 }
-
-#accountLo>div>label.focus{
+#accountLo>div.error{
+    border: 1px solid #E4393C;
+}
+#accountLo>div.error>label{
+    border-right: 1px solid #E4393C;
+    background-position-y:-96px;
+}
+#accountLo>div.focus{
+    border: 1px solid #bdbdbd;
+}
+#accountLo>div.focus>label{
     background-position-y: -222px;
+    border-right: 1px solid #bdbdbd;
 }
 #accountLo>div:nth-of-type(3) a{
     float: right;
