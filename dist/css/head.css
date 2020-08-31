@@ -5,19 +5,12 @@
 }
 .position li>a{
     padding: 0 2px;
-    width: 46px;
     height: 30px;
     display: inline-block;
+    white-space: nowrap;
 }
-.position li>a:hover{
-    border: 1px solid #ccc;
-    border-top: none;
-    border-bottom: none;
-    background: #fff;
-    
-}
-.position li>a:hover i{
-    color: #f10215;
+.position>li{
+    position: relative;
 }
 .position li a{
     color:#999;
@@ -33,13 +26,30 @@
     line-height: 30px;
 }
 .position li>div{
+    position: absolute;
+    display: none;
     width: 320px;
     padding: 10px;
     background: #fff;
     line-height: 24px;
     border: 1px solid #ccc;
     border-top: none;
+    z-index: 999;
 }
+.position li:hover>a{
+    border: 1px solid #ccc;
+    border-top: none;
+    border-bottom: none;
+    background: #fff;
+    
+}
+.position li:hover>a i{
+    color: #f10215;
+}
+.position li:hover>div{
+    display: block;
+}
+
 .province{
     border-bottom: 1px dotted #cecece;
 }
@@ -159,6 +169,7 @@
     top: -1px;
 }
 .nav .secondNav{
+    z-index: 999;
     display: none;
     background: #fff;
     border: 1px solid #ccc;
@@ -269,6 +280,4 @@
     height: 66px;
     background: url(../img/jdapp.png);
     margin: 5px auto;
-   
-
 }

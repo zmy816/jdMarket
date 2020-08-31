@@ -1,0 +1,33 @@
+$(function(){
+    $(".top-logo>div").hover(function(){
+        $(this).css({"background-image":"url(img/tea.gif)","background-size":"cover"})
+        $(this).find("p").delay(2000).fadeIn();
+    },function(){
+        $(this).css("background","url(img/sprite.png)")
+        $(this).find("p").stop().hide();
+    })
+
+    // 二级导航显示
+    $(".pro-nav>li").hover(function(){
+        $(".secondProNav").show();
+        $(this).css({
+            "background":"#d9d9d9"
+        }).siblings().css({
+            "background":"#fff"
+        })
+    })
+    $(".navWrap").mouseleave(function(){
+        $(".secondProNav").hide();
+    })
+    $(window).scroll(function(){
+        if($(window).scrollTop()>=$(".pro-nav").offset().top){
+            $(".secondProNav").stop().animate({
+                "top":$(window).scrollTop()-$(".pro-nav").offset().top+"px"
+            },200)
+        }else{
+            $(".secondProNav").stop().animate({
+                "top":0
+            },200)
+        }
+    })
+})
