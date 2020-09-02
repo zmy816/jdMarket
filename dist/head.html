@@ -12,7 +12,8 @@
 </head>
 
 <body>
-    <div class="header clean">
+    <div class="headerBox">
+        <div class="header clean">
         <ul class="position fl">
             <li>
                 <a href=""><span class="iconfont icon-dingwei"></span><i>河南</i></a>
@@ -72,15 +73,16 @@
             </li>
         </ul>
         <ul class="fr clean nav">
-            <li>
-                <a href="">你好，请登录</a>&nbsp;&nbsp;&nbsp;
+            <li id="user-li">
+                <a href="" id="">你好，请登录</a>&nbsp;&nbsp;&nbsp;
                 <a href="" style="color: #F10215;">免费注册</a>
+
             </li>
             <li class="line"></li>
             <li><a href="">我的订单</a></li>
             <li class="line"></li>
             <li class="myjd">
-                <div ><a href="">我的京东</a><span class="iconfont icon-RectangleCopy"></span></div>
+                <div><a href="">我的京东</a><span class="iconfont icon-RectangleCopy"></span></div>
                 <div class="secondNav">
                     <div class="mine1 clean">
                         <p><a href="">待处理订单</a></p>
@@ -181,7 +183,7 @@
                         <p><a href="">优惠券</a></p>
                         <p><a href="">秒杀</a></p>
                         <p><a href="">闪购</a></p>
-                        <p><a href="">印尼站</a></p> 
+                        <p><a href="">印尼站</a></p>
                     </div>
                     <div class="clean">
                         <p>生活服务</p>
@@ -199,7 +201,7 @@
                         <p><a href="">优惠券</a></p>
                         <p><a href="">秒杀</a></p>
                         <p><a href="">闪购</a></p>
-                        <p><a href="">印尼站</a></p> 
+                        <p><a href="">印尼站</a></p>
                     </div>
                     <div class="clean">
                         <p>更多精选</p>
@@ -212,14 +214,16 @@
                         <p><a href="">台湾售</a></p>
                         <p><a href="">俄语站</a></p>
                         <p><a href="">装机大师</a></p>
-                        <p><a href="">0元评测</a></p> 
+                        <p><a href="">0元评测</a></p>
                     </div>
                 </div>
             </li>
             <li class="line"></li>
             <li style="border: none;" class="mobileJd">
                 <a href="">手机京东</a>
-                <div><div></div></div>
+                <div>
+                    <div></div>
+                </div>
                 <!-- <div class="secondNav">
                     <div>
                         <img src="" alt="">
@@ -264,20 +268,90 @@
                 </div> -->
             </li>
         </ul>
+    </div></div>
+    
+    <div class="searchCon">
+        <div class="content">
+            <div class="contentTopW">
+                <div class="content-t">
+                    <div>
+                        <a href="#" class="top-logo">
+                            <div>
+                                <p>品一杯香茗</p>
+                                <p>去看看></p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="search-form">
+                        <input type="text" placeholder="dell显示器">
+                        <span class="iconfont icon-tubiaozhizuo-"></span>
+                        <button><span class="iconfont icon-sousuo"></span></button>
+
+                    </div>
+                    <div class="cart">
+                        <span class="iconfont icon-gouwuche"></span>
+                        <a href="javascript:void(0)">我的购物车</a>
+                    </div>
+                    <ul class="ul-s">
+                        <li><a href="javacript:void(0)" style="color: #F10214;">图书超品日</a></li>
+                        <li><a href="javacript:void(0)">品质家居</a></li>
+                        <li><a href="javacript:void(0)">嘿市</a></li>
+                        <li><a href="javacript:void(0)">京东电脑</a></li>
+                        <li><a href="javacript:void(0)">京东超市</a></li>
+                        <li><a href="javacript:void(0)">嘉宝米粉</a></li>
+                        <li><a href="javacript:void(0)">大牌家居</a></li>
+                        <li><a href="javacript:void(0)">中兴新品</a></li>
+                        <li><a href="javacript:void(0)">学生专享</a></li>
+                    </ul>
+                    <ul class="ul-b">
+                        <li class="bold"><a href="javacript:void(0)">秒杀</a></li>
+                        <li class="bold"><a href="javacript:void(0)">优惠券</a></li>
+                        <li><a href="javacript:void(0)">PLUS会员</a></li>
+                        <li><a href="javacript:void(0)">京东电脑</a></li>
+                        <li><a href="javacript:void(0)">拍卖</a></li>
+                        <li><a href="javacript:void(0)">嘉宝米粉</a></li>
+                        <li><a href="javacript:void(0)">大牌家居</a></li>
+                        <li><a href="javacript:void(0)">中兴新品</a></li>
+                        <li><a href="javacript:void(0)">学生专享</a></li>
+                        <li><a href="javacript:void(0)">京东金融</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
     </div>
     <script>
-        $(function(){
-            $(".province a").click(function(){
+        $(function () {
+            $(".province a").click(function () {
                 $(this).addClass("checked").parent().siblings().find("a").removeClass("checked");
                 $(".position>li i").html($(this).html());
                 $(".position>li>div").hide();
             })
-            $(".position>li").hover(function(){
+            $(".position>li").hover(function () {
                 $(".position>li>div").show();
-            },function(){
+            }, function () {
                 $(".position>li>div").hide();
             })
-            $("a").attr("href","javascript:void(0)");
+            // $("a").attr("href", "javascript:void(0)");
+            var searchStr = location.search;
+            if (searchStr) {
+                var uid = location.search.split("&")[0].split("=")[1];
+                var uname = location.search.split("&")[1].split("=")[1];
+            }
+            if (uid) {
+                console.log($("#user-li").length);
+                $("#user-li").html("<p>欢迎你&nbsp" + uname + "</p >");
+                // 购物车点击
+                $(".cart").click(function(){
+                    location.href = "cart.html?uid="+uid+"&uname="+uname;
+                })
+            }else{
+                $(".cart").click(function(){
+                    location.href = "cart.html";
+                })
+            }
+
         })
     </script>
 </body>

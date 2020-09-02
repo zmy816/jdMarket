@@ -110,5 +110,21 @@ $(function () {
         getTime(endTime);
     }, 1000)
 
+    // 阻止a标签的默认跳转行为
     $("a").attr("href","javascript:void(0)");
+
+    //取出地址栏的uid
+    if(location.search){
+        var uid = location.search.split("&")[0].split("=")[1];
+        var uname = location.search.split("&")[1].split("=")[1];
+    }
+
+    $("a").click(function(){
+        if(uid){
+            location.href = "prolist.html?uid="+uid+"&uname="+uname;
+        }else{
+            location.href = "prolist.html";
+        }
+    })
+
 })

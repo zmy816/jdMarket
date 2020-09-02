@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <script src="js/jquery-1.11.0.js"></script>
+</head>
+
+<body>
+    <div class="headerWrap"></div>
+    <div class="contentWrap">
+        <div class="cartWrap">
+            <div>
+                <p>全部商品</p>
+                <p></p>
+            </div>
+            <div class="cart-tit">
+                <div><input type="checkbox" name="" class="all-check">全选</div>
+                <div>商品</div>
+                <div>单价</div>
+                <div>数量</div>
+                <div>小计</div>
+                <div>操作</div>
+            </div>
+            <ul id="cartList">
+                <li>
+                    <input type="checkbox" name="" id="" class="per-check">
+                    <img src="img/pro-img1.jpg.webp" alt="">
+                    <div><a href="">韩国进口ZEK芝士深海鳕鱼肠鱼肉火腿肠海味小吃儿童健康即食营养休闲零食 105g</a></div>
+                    <div>￥11.8</div>
+                    <div><span class="reduce">-</span><input type="type" name="" id="" value="1"><span class="plus">+</span></div>
+                    <div>￥11.8</div>
+                    <button>删除</button>
+                </li>
+                <li>
+                    <input type="checkbox" name="" id="" class="per-check">
+                    <img src="img/pro-img1.jpg.webp" alt="">
+                    <div><a href="">韩国进口ZEK芝士深海鳕鱼肠鱼肉火腿肠海味小吃儿童健康即食营养休闲零食 105g</a></div>
+                    <div>￥11.8</div>
+                    <div><span class="reduce">-</span><input type="type" name="" id="" value="1"><span class="plus">+</span></div>
+                    <div>￥11.8</div>
+                    <button>删除</button>
+                </li>
+                <li>
+                    <input type="checkbox" name="" id="" class="per-check">
+                    <img src="img/pro-img1.jpg.webp" alt="">
+                    <div><a href="">韩国进口ZEK芝士深海鳕鱼肠鱼肉火腿肠海味小吃儿童健康即食营养休闲零食 105g</a></div>
+                    <div>￥11.8</div>
+                    <div><span class="reduce">-</span><input type="type" name="" id="" value="1"><span class="plus">+</span></div>
+                    <div>￥11.8</div>
+                    <button>删除</button>
+                </li>
+                <li>
+                    <input type="checkbox" name="" id="" class="per-check">
+                    <img src="img/pro-img1.jpg.webp" alt="">
+                    <div><a href="">韩国进口ZEK芝士深海鳕鱼肠鱼肉火腿肠海味小吃儿童健康即食营养休闲零食 105g</a></div>
+                    <div>￥11.8</div>
+                    <div><span class="reduce">-</span><input type="type" name="" id="" value="1"><span class="plus">+</span></div>
+                    <div>￥11.8</div>
+                    <button>删除</button>
+                </li>
+            </ul>
+            <div class="cart-b">
+                <div class="fl"><input type="checkbox" class="all-check" />全选</div>
+                <div class="fr">总价：<span>￥1233</span></div>
+                <div class="fr">已选择<span>1</span>件商品</div>
+                <button>去结算</button>
+            </div>
+        </div>
+    </div>
+    <div class="footWrap"></div>
+    <script>
+        $(function () {
+            $(".headerWrap").load("head.html");
+            $(".footWrap").load("foot.html");
+            // 全选
+            $(".all-check").click(function(){
+                var status =  $(this).prop("checked");
+                $("input[type='checkbox']").prop("checked",status);
+            })
+            $("#cartList").on("click",".per-check",function(){
+                if($(".per-check:checked").length == $(".per-check").length){
+                    $(".all-check").prop("checked",true);
+                }else{
+                    $(".all-check").prop("checked",false);
+                }
+            })
+
+            // 增加数量按钮
+            $("#cartList").on("click",".plus",function(){
+                var num = Number($(this).prev().val())+1;
+                $(this).prev().val(num);
+                
+            })
+            // 减少数量按钮
+            $("#cartList").on("click",".reduce",function(){
+                var num = Number($(this).next().val())-1;
+                $(this).next().val(num);
+                if($(this).next().val()==0){
+                    $(this).next().val(1);
+                }
+            })
+
+            if (location.search) {
+                var uid = location.search.split("&")[0].split("=")[1];
+                var uname = location.search.split("&")[1].split("=")[1];
+            }
+            if(uid){
+                // 展示购物车数据
+                var str = "";
+                $.get(
+                    "http://jx.xuzhixiang.top/ap/api/cart-list.php",
+                    {"id":uid},
+                    (data)=>{
+                        if(data.data.length!=0){
+                            console.log(data);
+                            data.data.forEach((element) => {
+                                str+=`
+                                <li>
+                                    <input type="checkbox" name="" id="" class="per-check">
+                                    <img src="${element.pimg}" alt="">
+                                    <div><a href="">${element.pname}</a></div>
+                                    <div>￥${element.pprice}</div>
+                                    <div><span class="reduce">-</span><input type="type" name="" class="num" value="${element.pnum}"><span class="plus">+</span></div>
+                                    <div>￥${Number(element.pprice*element.pnum).toFixed(2)}</div>
+                                    <button data-id="${element.pid}">删除</button>
+                                </li>
+                                `;
+                            });
+                            $("#cartList").html(str);
+                        }
+                    }
+                )
+
+            }
+        })
+    </script>
+</body>
+
+</html>

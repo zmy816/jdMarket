@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/detail.css">
+    <script src="js/jquery-1.11.0.js"></script>
+    <script src="js/zoom.js"></script>
+</head>
+<body>
+    <div class="headerWrap"></div>
+    <div class="contentWrap">
+        <div class="detail-con clean">
+            <div class="zoomBox fl">
+                <div id="middleArea">
+                    <img class="pimg" src="img/pro-img1.jpg.webp" alt="">
+                    <div id="zoom"></div>
+                </div>
+                <div id="bigArea">
+                    <img class="pimg" id="bigImg" src="img/pro-img1.jpg.webp" alt="">
+                </div>
+            </div>
+            <div class="pro-detail fl">
+                <h4 id="pro-tit">小牛密探 蒙古奶皮80g*60袋</h4>
+                <p id="pro-desc">【每满199减100，部分领券满169再减30元】9月中秋，味爱团圆，食品9月开门红限时促销</p>
+                <p >价格<span id="price">￥19.90</span></p>
+                <div class="add-cart clean">
+                    <div id="pro-num">
+                        <input type="text" name="" id="num" value="1">
+                        <span id="plus">+</span>
+                        <span id="reduce">-</span>  
+                    </div>
+                    <div class="fl"><button id="add-btn">加入购物车</button></div>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footerWrap"></div>
+    <script>
+        $(function(){
+            $(".headerWrap").load("head.html");
+            $(".footerWrap").load("foot.html");
+            var zoom = new Zoom();
+            zoom.showZoom();
+            // 增加数量按钮
+            $("#plus").click(function(){
+                var num = Number($("#num").val())+1;
+                $("#num").val(num);
+            })
+            // 减少数量按钮
+            $("#reduce").click(function(){
+                var num = Number($("#num").val())-1;
+                $("#num").val(num);
+                if($("#num").val()==0){
+                    $("#num").val("1");
+                }
+            })
+            if(location.search){
+                var searchStr = location.search.split("&");
+                var uid = searchStr[0].split("=")[1];
+                var uname = searchStr[1].split("=")[1];
+                var pid = searchStr[2].split("=")[1];
+            }
+            if(uid){
+                // 购物车添加数据
+                $.get(
+                    "http://jx.xuzhixiang.top/ap/api/add-product.php",
+                    {
+                        "uid":uid,
+                        "pid":pid,
+                        "pnum":$("#num").val()
+                    },
+                    data=>{
+                        alert(data.data.msg);
+                    }
+                );
+            }
+            if(pid){
+                $.get(
+                    "http://jx.xuzhixiang.top/ap/api/detail.php",
+                    {"id":pid},
+                    (data)=>{
+                        if(data.data!=null){
+                            $("#pro-tit").html(data.data.pdesc);
+                            $("#pro-desc").html(data.data.pname);
+                            $("#price").html("￥"+data.data.pprice);
+                            $(".pimg").attr("src",data.data.pimg);
+                        }
+                    }
+                )
+            }
+            
+        })
+    </script>
+</body>
+</html>

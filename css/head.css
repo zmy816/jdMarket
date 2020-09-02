@@ -2,6 +2,10 @@
     width: 1190px;
     height: 30px;
     margin: 0 auto;
+    
+}
+.headerBox{
+    background-color: #E3E4E5;
 }
 .position li>a{
     padding: 0 2px;
@@ -280,4 +284,171 @@
     height: 66px;
     background: url(../img/jdapp.png);
     margin: 5px auto;
+}
+#user-li>p{
+    font-size: 15px;
+    color: #333;
+    font-weight: 700;
+}
+
+
+.search,.content-t{
+    width: 1190px;
+    margin: 0 auto;
+}
+.searchWrap{
+    background: #FFF;
+    border-bottom: 2px #F10214 solid;
+    padding: 5px 0;
+    position: fixed;
+    width: 100%;
+    top: -52px;
+    /* left: 0; */
+    z-index: 999;
+}
+.search{
+    position: relative;
+}
+.search>div{
+    float: left;
+}
+.search .search-logo{
+    display: block;
+    width: 125px;
+    height: 40px;
+    background: url(../img/sprite.png) 0 -120px;
+    
+}
+.search-form{
+    position: absolute;
+    left: 260px;
+    top: 4px;
+    width: 550px;
+    height: 36px;
+    border: 2px #F10214 solid;
+    padding: 2px 44px 2px 17px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.search-form>input{
+    width: 425px;
+    height: 26px;
+}
+.search-form .icon-tubiaozhizuo-{
+    font-size: 17px;
+    color: #bcbcbc;
+    position: absolute;
+    right: 75px;
+    top: 7px;
+}
+.search-form button{
+    width: 60px;
+    background: #F10214;
+    height: 36px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.search-form .icon-sousuo{
+    color: #fff;
+    position: absolute;
+    top: 8px;
+    left: 25px;
+}
+.cart{
+    width: 130px;
+    height: 34px;
+    border: 1px solid #e3e4e5;
+    position: absolute;
+    right: 230px;
+    top: 4px;
+    line-height: 34px;
+    text-align: center;
+}
+.cart:hover{
+    border-color: #F10214;
+}
+.cart>.icon-gouwuche{
+    color: #F10214;
+    margin-right: 10px;
+}
+.cart>a{
+    color: #F10214;
+}
+.content-t{
+    position: relative;
+    height: 140px;
+}
+.contentTopW{
+    background: #fff;
+}
+.top-logo{
+    display: inline-block;
+}
+.content-t .top-logo>div{
+    height: 120px;
+    width: 134px;
+    background-image: url(../img/sprite.png);
+    text-align: center;
+    overflow: hidden;
+    background-color: #fff;
+}
+.top-logo>div>p{
+    display: none;
+}
+.top-logo>div>p:first-child{
+    margin-top: 36px;
+    color: rgb(155, 120, 83);
+    font-size: 16px;
+    font-weight: 700;
+}
+.top-logo>div>p:last-child{
+    width: 60px;
+    height: 20px;
+    border-radius: 10px;
+    background: rgb(255, 145, 125);
+    margin: 10px auto;
+    color: #fff;
+}
+.content-t .search-form{
+    top: 25px;
+}
+.content-t .cart{
+    top: 25px;
+}
+.search-m{
+    position: absolute;
+    top: 21px;
+    height: 90px;
+    width: 700px;
+}
+.ul-s{
+    position: absolute;
+    top: 65px;
+    left: 260px;
+}
+.ul-s>li{
+    float: left;
+    margin-right: 10px;
+}
+.ul-b>li.bold>a{
+    font-weight: 700;
+    color: #F10214;
+}
+.ul-s>li>a{
+    color: #999;
+}
+.ul-b{
+    position: absolute;
+    bottom: 0;
+    left: 203px;
+}
+.ul-b>li{
+    float: left;
+    margin-right: 23px;
+    height: 40px;
+    line-height: 40px;
+}
+.ul-b>li>a{
+    font-size: 15px;
 }

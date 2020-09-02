@@ -51,7 +51,7 @@ $(function () {
 
     // 表单获得焦点
     $("#accountLo>div>input").focus(function(){
-        $(this).parent().addClass("focus").siblings().removeClass("focus");
+        $(this).parent().attr("class","focus").siblings().removeClass("focus");
     })
     // 表单填写
     $("#accountLo>div>input").on("input",function(){
@@ -76,14 +76,37 @@ $(function () {
         var pwdVal = $("#passwd").val().trim();
         if(userVal.length == 0 && pwdVal.length == 0){
             $("#error-note").css("visibility","visible").find("span").html("请输入账户名和密码");
-            $("#accountLo>div:eq(0)").addClass("error");
-            $("#accountLo>div:eq(1)").addClass("error");
+            $("#accountLo>div:eq(0)").attr("class","error");
+            $("#accountLo>div:eq(1)").attr("class","error");
         }else if(userVal.length == 0){
             $("#error-note").css("visibility","visible").find("span").html("请输入账户名");
+            $("#accountLo>div:eq(0)").atttr("class","error");
         }else if(pwdVal.length == 0){
             $("#error-note").css("visibility","visible").find("span").html("请输入密码");
+            $("#accountLo>div:eq(1)").attr("class","error");
         }else{
-            $("#error-note").css("visibility","hidden")
+            $("#error-note").css("visibility","hidden");
+            $("#accountLo>div:eq(0)").removeClass("error");
+            $("#accountLo>div:eq(1)").removeClass("error");
+            $.get(
+                "http://jx.xuzhixiang.top/ap/api/login.php",
+                {
+                    "username":$("#username").val(),
+                    "password":$("#passwd").val()
+                },
+                (data)=>{
+                    console.log(data);
+                    if(data.code=="0"){
+                        console.log("ss");
+                        $("#error-note").css("visibility","visible").find("span").html(data.msg);
+                    }
+                    if(data.code == "1"){
+                        $("#error-note").css("visibility","hidden").find("span").html("");
+                        alert("登录成功");
+                        location.href = "index.html?uid="+data.data.id+"&uname="+data.data.username;
+                    }
+                }
+            );
         }
     })
 

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品列表</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/prolist.css">
+    <script src="js/jquery-1.11.0.js"></script>
+</head>
+
+<body>
+    <div class="headWrap">
+
+    </div>
+    <div class="contentm-w">
+        <div class="content-m">
+            <ul id="proList" class="clean">
+                <li>
+                    <a href=""><img src="img/pro-img1.jpg.webp" alt=""></a>
+                    <p>好欢螺 螺蛳粉（水煮型）广西柳州特产方便面粉速食米线 袋装300g</p>
+                    <p>￥14.0</p>
+                    
+                    <button>加入购物车</button>
+                </li>
+                <li>
+                    <a href=""><img src="img/pro-img1.jpg.webp" alt=""></a>
+                    <p>默认商品2</p>
+                    <p>￥14.0</p>
+                    <button>加入购物车</button>
+                </li>
+                <li>
+                    <a href=""><img src="img/pro-img1.jpg.webp" alt=""></a>
+                    <p>默认商品3</p>
+                    <p>￥14.0</p>
+                    <button>加入购物车</button>
+                </li>
+                <li>
+                    <a href=""><img src="img/pro-img1.jpg.webp" alt=""></a>
+                    <p>达利园红豆面包280g袋装 代餐早餐营养办公室休闲零食</p>
+                    <p>￥14.0</p>
+                    <button>加入购物车</button>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <div class="footWrap">
+
+    </div>
+    <script>
+        $(function () {
+            $(".headWrap").load("head.html");
+            $(".footWrap").load("foot.html");
+            if(location.search){
+                var searchStr = location.search.split("&");
+                var uid = searchStr[0].split("=")[1];
+                var uname = searchStr[1].split("=")[1];
+            }
+            console.log(uname);
+            if (uid) {
+                // 展示商品列表
+                $.get(
+                    "http://jx.xuzhixiang.top/ap/api/productlist.php",
+                    { "uid": uid },
+                    (data) => {
+                        if (data.data.length != 0) {
+                            var str = "";
+                            data.data.forEach((element) => {
+                                str += `
+                                <li>
+                                    <a href="detail.html?uid=${uid}&uname=${uname}&pid=${element.pid}"><img src="${element.pimg}" alt=""></a>
+                                    <p>${element.pname}</p>
+                                    <p>￥${element.pprice}</p>
+                                    <button data-id=${element.pid} class="add-btn">加入购物车</button>
+                                </li>
+                                `;
+                            })
+                            $("#proList").html(str);
+                        }
+                    }
+                )
+
+                // 加入购物车
+                $("#proList").on("click",".add-btn",function(){
+                    var pid = $(this).attr("data-id");
+                    console.log(pid);
+                    console.log(uid);
+                    $.get(
+                        "http://jx.xuzhixiang.top/ap/api/add-product.php",
+                        {
+                            "uid":uid,
+                            "pid":pid,
+                            "pnum":1
+                        },
+                        (data)=>{
+                            console.log(data);
+                        }
+                    );
+                })
+
+            }
+           
+
+        })
+
+    </script>
+</body>
+
+</html>

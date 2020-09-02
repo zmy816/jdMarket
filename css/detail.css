@@ -1,0 +1,151 @@
+.headerWrap{
+    border-bottom: 2px #F10214 solid;
+}
+body{
+    background: #eee;
+}
+.contentWrap{
+    min-height: 600px;
+    margin-top: 20px;
+    background: #fff;
+    padding: 10px 0;
+}
+.detail-con{
+    width: 1190px;
+    margin: 0 auto;
+}
+/* 放大镜 */
+.zoomBox{
+
+    margin-top: 10px;
+    position: relative;
+}
+#middleArea {
+    width: 350px;
+    height: 350px;
+    border: 1px solid #cecece;
+    position: relative;
+}
+
+#middleArea img {
+    height: 350px;
+    width: 350px;
+}
+
+#zoom {
+    position: absolute;
+    width: 236.5px;
+    height: 236.5px;
+    left: 0;
+    top: 0;
+    background: yellowgreen;
+    opacity: .4;
+    cursor: move;
+    display: none;
+}
+
+#bigArea {
+    position: absolute;
+    width: 540px;
+    height: 540px;
+    top: 0;
+    left: 351px;
+    border: 1px #cecece solid;
+    overflow: hidden;
+    display: none;
+}
+
+#bigArea img {
+    width: 800px;
+    height: 800px;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 2;
+}
+#smallArea img{
+    width: 100px;
+    height: 100px;
+    float: left;
+    border: 1px solid #cecece;
+    cursor: pointer;
+}
+/* 商品详情 */
+.pro-detail{
+    margin-top: 40px;
+    margin-left: 25px;
+    min-height: 200px;
+    /* background: gold; */
+}
+.pro-detail>p{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666;
+}
+#pro-tit{
+    font-size: 18px;
+    color: #666;
+    font-weight: 700;
+}
+#pro-desc{
+    margin-top: 10px;
+    font-size: 12px;
+    color: #e4393c;
+}
+.pro-detail>p:nth-of-type(2){
+    height: 40px;
+    background: #f3f3f3;
+}
+#price{
+    color: #e4393c;
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 10px;
+}
+.add-cart{
+    margin-top: 20px;
+}
+#pro-num{
+    float: left;
+    width: 58px;
+    height: 45px;
+    border: 1px solid #ccc;
+    position: relative;
+}
+#num{
+    width: 42px;
+    height: 44px;
+    text-align: center;
+}
+#pro-num>span{
+    width: 15px;
+    height: 22px;
+    border-left: 1px solid #ccc;
+    display: block;
+    position: absolute;
+    background-color: #f1f1f1;
+    color: #666;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+}
+#plus{
+    top: 0;
+    right: 0;
+    border-bottom: 1px solid #ccc;
+}
+#reduce{
+    top: 23px;
+    right: 0;
+}
+#add-btn{
+    margin-left: 10px;
+    background-color: #df3033;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    width: 142px;
+    height: 46px;
+    cursor: pointer;
+}
+
