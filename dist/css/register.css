@@ -1,0 +1,206 @@
+.headWrap{
+    background: #fff;
+    box-shadow:0 5px 5px #eee;
+}
+.header{
+    width: 1210px;
+    margin: 0 auto;
+    height: 110px;
+    overflow: hidden;
+}
+.logo{
+    margin-top: 24px;
+}
+.logo>a{
+    display: block;
+    float: left;
+    width: 160px;
+    height: 50px;
+    background: url(../img/reg-icon.png);
+}
+.logo>h1{
+    float: left;
+    font-size: 24px;
+    color: #333;
+    margin-top: 10px;
+}
+.header>div:last-child{
+    float: right;
+    margin-top: 55px;
+    font-size: 16px;
+    color: #999;
+}
+.header>div:last-child>a{
+    color: #e22;
+    margin-left: 5px;
+}
+.header>div:last-child>a:hover{
+    color: rgb(202, 5, 5);
+    text-decoration: underline;
+}
+.regs{
+    width: 1210px;
+    height: 990px;
+    margin: 0 auto;
+}
+.form-t{
+    width: 400px;
+    margin: 80px auto 0;
+    min-height: 50px;
+    position: relative;
+}
+.step-index{
+    margin-left: 95px;
+}
+.step-index:nth-of-type(1){
+    margin-left: 0;
+}
+.step-index>p:nth-of-type(1){
+    /* background: #33BB44; */
+    border: 1px solid #cdcdcd;
+    color: #ccc;
+    font-size: 12px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    margin: 0 auto;
+}
+.step-index>p:nth-of-type(2){
+    font-size: 14px;
+    margin-top: 10px;
+    color: #999;
+}
+.line{
+    width: 124px;
+    height: 10px;
+    background: url(../img/reg-bj.png) 0 -100px;
+    position: absolute;
+}
+.line:nth-of-type(1){
+    top: 7px;
+    left: 62px;
+}
+.line:nth-of-type(2){
+    top: 7px;
+    left: 228px;
+}
+.regs form{
+    width: 400px;
+    margin: 50px auto 186px;
+}
+.form-wrap{
+    height: 80px;
+    position: relative;
+}
+.form-wrap:nth-of-type(2){
+    height: 90px;
+}
+.form-wrap>div{
+    height: 45px;
+    border: 1px solid #ddd;
+}
+.form-wrap>div>label{
+    display: inline-block;
+    height: 45px;
+    width: 80px;
+    border-right: #ddd 1px solid;
+    text-align: center;
+    line-height: 45px;
+    font-size: 14px;
+    color: #666;
+}
+.form-wrap>i:nth-of-type(1){
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: url(../img/reg-bj.png) no-repeat;
+    background-position: -80px -160px;
+    position: absolute;
+    right: 15px;
+    top: 17px;
+    display: none;
+    cursor: pointer;
+}
+.form-wrap>i:nth-of-type(2){
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(../img/reg-bj.png) no-repeat;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: none;
+}
+.form-wrap>p:not(.pwd-note){
+    margin-top: 5px;
+    display: none;
+}
+.form-wrap>p>i{
+    display: block;
+    float: left;
+    width: 16px;
+    height: 17px;
+    background: url(../img/reg-icon.png) no-repeat;
+    background-position: 0px -100px;
+}
+.form-wrap>p>span{
+    margin-left: 5px;
+    color: #666;
+}
+.form-wrap input{
+    text-indent: 10px;
+    width: 310px;
+}
+.form-wrap b{
+    margin-top: 3px;
+    margin-left: 8px;
+    float: left;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url(../img/reg-icon.png) no-repeat;
+    /* position: absolute; */
+}
+.form-wrap>p:nth-of-type(2)>span{
+    float: left;
+    color: #333;
+    font-size: 14px;
+}
+.form-wrap .pwd-r{
+    background-position: -17px -134px;
+}
+.form-wrap .pwd-z{
+    background-position: -34px -117px;
+}
+.form-wrap .pwd-q{
+    background-position: -34px -134px;
+}
+.regs button{
+    margin-top: 30px;
+    height: 50px;
+    width: 100%;
+    background-color: #E2231A;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 2px;
+    font-weight: 700;
+    cursor: pointer;
+}
+form>div:hover>div, form>div.hover>div{
+    border-color: #aaa;
+}
+form>div:hover>div>label, form>div.hover>div>label{
+    border-color: #aaa;
+}
+.pwd-note{
+    margin-top: 10px;
+    visibility: hidden;
+}
+p.note-err>i{
+    background-position: -17px -100px;
+}
+p.note-err>span{
+    color: rgb(253, 106, 81);
+}

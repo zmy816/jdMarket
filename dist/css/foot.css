@@ -1,0 +1,76 @@
+.ad-ul,.foot-m{
+    width: 1190px;
+    margin: 0 auto;
+}
+.foot-t,.footM-w,.foot-b{
+    border-bottom: #dedede 1px solid;
+}
+.ad-ul{
+    padding: 30px 0;
+}
+.ad-ul li{
+    float: left;
+    width: 297px;
+    text-align: center;
+}
+.ad-ul i{
+    display: inline-block;
+    vertical-align: middle;
+    width: 36px;
+    height: 42px;
+    background: url(../img/ico_service.png) no-repeat;
+}
+.ad-ul span{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 10px;
+}
+.ad-ul li:nth-of-type(2)>i{
+    background-position: 0 -42px;
+}
+.ad-ul li:nth-of-type(3)>i{
+    background-position: 0 -86px;
+}
+.ad-ul li:nth-of-type(4)>i{
+    background-position: 0 -129px;
+}
+.footM-w{
+    padding: 20px 0;
+}
+.foot-m>ul{
+    float: left;
+    width: 238px;
+    height: 160px;
+    text-align: center;
+    color: #666;
+}
+.foot-m>ul>li{
+    font-size: 11px;
+    line-height: 22px;
+}
+.foot-m>ul>li:first-child{
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.foot-b{
+    text-align: center;
+}
+.links{
+    margin-top: 20px;
+}
+.links a{
+    display: inline-block;
+    margin: 0 10px;
+    color: #666;
+}
+.links a:hover{
+    text-decoration: underline;
+    color: #b61d1d;
+}
+.copyright{
+    margin: 10px 0;
+    color: #666;
+}

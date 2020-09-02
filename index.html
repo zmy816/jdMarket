@@ -79,7 +79,7 @@
 
         </div>
         <div class="content-m">
-            <div class="content-nav">
+            <div class="content-nav clean">
                 <div class="navWrap fl">
                     <ul class="pro-nav">
                         <li>
@@ -408,7 +408,7 @@
                     </div>
                     <div class="appMenu">
                         <ul class="icon-list clean">
-                            <li>
+                            <li class="app-hide">
                                 <a href="">
                                     <i>
                                         <img src="img/phone.png" alt="">
@@ -417,7 +417,7 @@
                                     <span>话费</span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="app-hide">
                                 <a href="">
                                     <i>
                                         <img src="img/plane.png" alt="">
@@ -426,7 +426,7 @@
                                     <span>机票</span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="app-hide">
                                 <a href="">
                                     <i>
                                         <img src="img/hotel.png" alt="">
@@ -519,73 +519,361 @@
                         </ul>
                         <div class="app-t">
                             <div class="tit">
-                                <a href="" class="hover">话费</a>
-                                <a href="">机票</a>
-                                <a href="">酒店</a>
+                                <a id="phone-tit" href="" class="hover">话费</a>
+                                <a id="plane-tit" href="">机票</a>
+                                <a id="hotel-tit" href="">酒店</a>
                             </div>
-                            <div class="phone-con">
-                                <p>
-                                    <a href="">话费充值</a>
-                                    <a href="">流量充值</a>
-                                    <a href="">套餐变更</a>
-                                </p>
-                                <div>
-                                    <label for="">号码</label>
-                                    <input type="text">
+                            <div>
+                                <div class="app-con phone-con">
+                                    <p>
+                                        <a href="">话费充值</a>
+                                        <a href="">流量充值</a>
+                                        <a href="">套餐变更</a>
+                                    </p>
+                                    <div>
+                                        <label for="">号码</label>
+                                        <input type="text">
+                                    </div>
+                                    <div>
+                                        <label for="">面值</label>
+                                        <select name="" id="">
+                                            <option value="">10元</option>
+                                            <option value="">20元</option>
+                                            <option value="">30元</option>
+                                            <option value="">50元</option>
+                                            <option value="">100元</option>
+                                        </select>
+
+                                    </div>
+                                    <p>￥98.0-￥100.0</p>
+                                    <button>快速充值</button>
+                                    <p><a href="">抢90减40元话费券</a></p>
                                 </div>
-                                <div>
-                                    <label for="">面值</label>
-                                    <select name="" id="">
-                                        <option value="">10元</option>
-                                        <option value="">20元</option>
-                                        <option value="">30元</option>
-                                        <option value="">50元</option>
-                                        <option value="">100元</option>
-                                    </select>
-                                    
+                                <div class="app-con plane-con">
+                                    <p>
+                                        <a href="">国内机票</a>
+                                        <a href="">国际港澳台</a>
+                                        <a href="">特惠</a>
+                                    </p>
+                                    <div>
+                                        <label for="">号码</label>
+                                        <input type="text">
+                                    </div>
+                                    <div>
+                                        <label for="">面值</label>
+                                        <select name="" id="">
+                                            <option value="">10元</option>
+                                            <option value="">20元</option>
+                                            <option value="">30元</option>
+                                            <option value="">50元</option>
+                                            <option value="">100元</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="">日期</label>
+                                        <input type="text">
+                                    </div>
+                                    <button>机票查询</button>
+                                    <p><a href="">抢90减40元话费券</a></p>
                                 </div>
-                                <p>￥98.0-￥100.0</p>
-                                <button>快速充值</button>
+                                <div class="app-con hotel-con">
+                                    <p>
+                                        <a href="">国内港澳台</a>
+                                        <a href="">促销活动</a>
+                                        <a href="">特惠</a>
+                                    </p>
+                                    <div>
+                                        <label for="">目的地</label>
+                                        <input type="text">
+                                    </div>
+                                    <div>
+                                        <label for="">入住日期</label>
+                                        <input type="text">
+                                    </div>
+                                    <div>
+                                        <label for="">离店日期</label>
+                                        <input type="text">
+                                    </div>
+                                    <button>酒店查询</button>
+                                    <p><a href="">订酒店上京东</a></p>
+                                </div>
+                                <div class="app-con"></div>
                             </div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
+                            <a id="close" href="javescript:void(0)">×</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ms">
+                <div class="ms-l fl">
+                    <h3>京东秒杀</h3>
+                    <div class="timeNumW"><span id="time-num">22:00</span>点场倒计时</div>
+                    <div>
+                        <span id="hour">10</span>:
+                        <span id="minute">00</span>:
+                        <span id="second">00</span>
+                    </div>
+                </div>
+                <div class="ms-m fl">
+                    <div class="swiper-container" id="ms-banner1">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="img/ms-banner1.jpg.webp" alt="">
+                                <h6>【夏日100%精选纯棉穿搭】</h6>
+                                <p><span>￥29.90</span><del>￥2099.00</del></p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/ms-banner2.jpg.webp" alt="">
+                                <h6 class="seckill-item__name">【初秋焕新】2020秋装新款镂空针织衫女薄款宽松显瘦打底衫ins网红打底衫毛衣上衣潮 蓝色1310
+                                    M（建议90-105斤）</h6>
+                                <p><span>￥29.90</span><del>￥2099.00</del></p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/ms-banner6.jpg.webp" alt="">
+                                <h6>【夏日100%精选纯棉穿搭】</h6>
+                                <p><span>￥29.90</span><del>￥2099.00</del></p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/ms-banner4.jpg.webp" alt="">
+                                <h6 class="seckill-item__name">【初秋焕新】2020秋装新款镂空针织衫女薄款宽松显瘦打底衫ins网红打底衫毛衣上衣潮 蓝色1310
+                                    M（建议90-105斤）</h6>
+                                <p><span>￥29.90</span><del>￥2099.00</del></p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/ms-banner6.jpg.webp" alt="">
+                                <h6 class="seckill-item__name">Redmi K30 Pro 变焦版 5G先锋 骁龙865旗舰处理器 弹出式超光感全面屏
+                                    索尼6400万双光学防抖四摄 30倍变焦 8GB+256GB 太空灰 游戏智能手机 小米 红米</h6>
+                                <p><span>￥29.90</span><del>￥2099.00</del></p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/ms-banner5.jpg.webp" alt="">
+                                <h6 class="seckill-item__name">vivo iQOO Z1 8GB+128GB 星河银 天玑1000Plus旗舰芯片 144Hz竞速屏
+                                    44W超快闪充 双模5G全网通手机 iqooz1</h6>
+                                <p><span>￥29.90</span><del>￥2099.00</del></p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/ms-banner2.jpg.webp" alt="">
+                                <h6 class="seckill-item__name">亿力YILI 家用洗车机高压清洗机 洗车水枪 洗车神器 洗车泵YLQ4350C-B 黑骑士 汽车用品摩托车
+                                </h6>
+                                <p><span>￥29.90</span><del>￥2099.00</del></p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/ms-banner1.jpg.webp" alt="">
+                                <h6 class="seckill-item__name">七波辉男童鞋2020春秋季新款透气网鞋子青少年中大童透气休闲鞋 70022黑灰 36</h6>
+                                <p><span>￥29.90</span><del>￥2099.00</del></p>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+                <div class="ms-r fl">
+                    <div class="swiper-container" id="ms-banner2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="img/ms-banner7.jpg.webp" alt="">
+                                <div>
+                                    <p>FILA品牌秒杀专场</p>
+                                    <p>满899减80</p>
+                                    <div>
+                                        大牌闪购
+                                        <span class="iconfont icon-iconfonticonfonti2copycopy"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/ms-banner8.jpg.webp" alt="">
+                                <div>
+                                    <p>FILA品牌秒杀专场</p>
+                                    <p>满899减80</p>
+                                    <div>
+                                        品类秒杀
+                                        <span class="iconfont icon-iconfonticonfonti2copycopy"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination"></div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tj">
+                <div class="box fl">
+                    <div class="tj-tit clean">
+                        <h3 class="fl">每日特价<span class="iconfont icon-iconfonticonfonti2copycopy"></span></h3>
+                        <p class="fl">
+                            <a href="">精选</a>
+                            <a href="">美食</a>
+                            <a href="">百货</a>
+                            <a href="">个护</a>
+                            <a href="">预告</a>
+                        </p>
+                    </div>
+                    <div class="tj-con clean">
+                        <div class="fl">
+                            <img src="img/tj-img1.jpg.webp" alt="">
+                            <p><a href="">四川红心猕猴桃15粒</a></p>
+                            <p><span>￥9.9</span><del>￥29.8</del></p>
+                            <p>已抢<span>353</span>件</p>
+                        </div>
+                        <div class="tj-con-r fl">
+                            <dl>
+                                <dt><img src="img/tj-img2.jpg.webp" alt=""></dt>
+                                <dd>
+                                    <h6>华为type-c数据线</h6>
+                                    <p>￥8.8</p>
+                                    <del>￥19.8</del>
+                                    <p>已抢<span>410</span>件</p>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt><img src="img/tj-img3.jpg.webp" alt=""></dt>
+                                <dd>
+                                    <h6>华为type-c数据线</h6>
+                                    <p>￥8.8</p>
+                                    <del>￥19.8</del>
+                                    <p>已抢<span>410</span>件</p>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt><img src="img/tj-img4.jpg.webp" alt=""></dt>
+                                <dd>
+                                    <h6>华为type-c数据线</h6>
+                                    <p>￥8.8</p>
+                                    <del>￥19.8</del>
+                                    <p>已抢<span>410</span>件</p>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt><img src="img/tj-img5.jpg.webp" alt=""></dt>
+                                <dd>
+                                    <h6>华为type-c数据线</h6>
+                                    <p>￥8.8</p>
+                                    <del>￥19.8</del>
+                                    <p>已抢<span>410</span>件</p>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="box box-r fl">
+                    <div class="tj-tit clean">
+                        <h3 class="fl">品牌闪购<span class="iconfont icon-iconfonticonfonti2copycopy"></span></h3>
+                        <p class="fl">
+                            <a href="">精选</a>
+                            <a href="">美食</a>
+                            <a href="">百货</a>
+                            <a href="">个护</a>
+                            <a href="">预告</a>
+                        </p>
+                    </div>
+                    <div class="tj-con clean">
+                        <div class="fl">
+                            <img src="img/tj-img1.jpg.webp" alt="">
+                            <p><a href="">四川红心猕猴桃15粒</a></p>
+                            <p><span>￥9.9</span><del>￥29.8</del></p>
+                            <p>已抢<span>353</span>件</p>
+                        </div>
+                        <div class="tj-con-r fl">
+                            <dl>
+                                <dt><img src="img/tj-img2.jpg.webp" alt=""></dt>
+                                <dd>
+                                    <h6>华为type-c数据线</h6>
+                                    <p>￥8.8</p>
+                                    <del>￥19.8</del>
+                                    <p>已抢<span>410</span>件</p>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt><img src="img/tj-img3.jpg.webp" alt=""></dt>
+                                <dd>
+                                    <h6>华为type-c数据线</h6>
+                                    <p>￥8.8</p>
+                                    <del>￥19.8</del>
+                                    <p>已抢<span>410</span>件</p>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt><img src="img/tj-img4.jpg.webp" alt=""></dt>
+                                <dd>
+                                    <h6>华为type-c数据线</h6>
+                                    <p>￥8.8</p>
+                                    <del>￥19.8</del>
+                                    <p>已抢<span>410</span>件</p>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt><img src="img/tj-img5.jpg.webp" alt=""></dt>
+                                <dd>
+                                    <h6>华为type-c数据线</h6>
+                                    <p>￥8.8</p>
+                                    <del>￥19.8</del>
+                                    <p>已抢<span>410</span>件</p>
+                                </dd>
+                            </dl>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script>
-        $(function () {
-            $(".headerCon").load("head.html");
-            // swiper
-            var swiper = new Swiper('#banner-l', {
-                slidesPerView: 1,
-                effect: 'fade',
-                loop: true,
-                autoplay: true,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-            });
-            var swiper = new Swiper('#banner-r', {
-                slidesPerView: 1,
-                effect: 'fade',
-                loop: true,
-                autoplay: true,
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-            });
-        })
-    </script>
+    <div class="footerCon"></div>
+        <script>
+            $(function () {
+                $(".headerCon").load("head.html");
+                $(".footerCon").load("foot.html");
+                // swiper
+                var swiper = new Swiper('#banner-l', {
+                    slidesPerView: 1,
+                    effect: 'fade',
+                    loop: true,
+                    autoplay: true,
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+                var swiper = new Swiper('#banner-r', {
+                    slidesPerView: 1,
+                    effect: 'fade',
+                    loop: true,
+                    autoplay: true,
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+                var swiper = new Swiper('#ms-banner1', {
+                    slidesPerView: 4,
+                    slidesPerGroup: 4,
+                    loop: true,
+                    loopFillGroupWithBlank: true,
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+                var swiper = new Swiper('#ms-banner2', {
+                    slidesPerView: 1,
+                    loop: true,
+                    loopFillGroupWithBlank: true,
+                    autoplay: true,
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                });
+            })
+        </script>
 </body>
 
 </html>
