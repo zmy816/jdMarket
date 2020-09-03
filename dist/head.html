@@ -74,8 +74,8 @@
         </ul>
         <ul class="fr clean nav">
             <li id="user-li">
-                <a href="" id="">你好，请登录</a>&nbsp;&nbsp;&nbsp;
-                <a href="" style="color: #F10215;">免费注册</a>
+                <a href="login.html" id="">你好，请登录</a>&nbsp;&nbsp;&nbsp;
+                <a href="register.html" style="color: #F10215;">免费注册</a>
 
             </li>
             <li class="line"></li>
@@ -346,9 +346,15 @@
                 $(".cart").click(function(){
                     location.href = "cart.html?uid="+uid+"&uname="+uname;
                 })
+                $(".top-logo").click(function(){
+                    location.href = "index.html?uid="+uid+"&uname="+uname;
+                })
             }else{
                 $(".cart").click(function(){
                     location.href = "cart.html";
+                })
+                $(".top-logo").click(function(){
+                    location.href = "index.html";
                 })
             }
 

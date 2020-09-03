@@ -27,47 +27,12 @@
                 <div>操作</div>
             </div>
             <ul id="cartList">
-                <li>
-                    <input type="checkbox" name="" id="" class="per-check">
-                    <img src="img/pro-img1.jpg.webp" alt="">
-                    <div><a href="">韩国进口ZEK芝士深海鳕鱼肠鱼肉火腿肠海味小吃儿童健康即食营养休闲零食 105g</a></div>
-                    <div>￥11.8</div>
-                    <div><span class="reduce">-</span><input type="type" name="" id="" value="1"><span class="plus">+</span></div>
-                    <div>￥11.8</div>
-                    <button>删除</button>
-                </li>
-                <li>
-                    <input type="checkbox" name="" id="" class="per-check">
-                    <img src="img/pro-img1.jpg.webp" alt="">
-                    <div><a href="">韩国进口ZEK芝士深海鳕鱼肠鱼肉火腿肠海味小吃儿童健康即食营养休闲零食 105g</a></div>
-                    <div>￥11.8</div>
-                    <div><span class="reduce">-</span><input type="type" name="" id="" value="1"><span class="plus">+</span></div>
-                    <div>￥11.8</div>
-                    <button>删除</button>
-                </li>
-                <li>
-                    <input type="checkbox" name="" id="" class="per-check">
-                    <img src="img/pro-img1.jpg.webp" alt="">
-                    <div><a href="">韩国进口ZEK芝士深海鳕鱼肠鱼肉火腿肠海味小吃儿童健康即食营养休闲零食 105g</a></div>
-                    <div>￥11.8</div>
-                    <div><span class="reduce">-</span><input type="type" name="" id="" value="1"><span class="plus">+</span></div>
-                    <div>￥11.8</div>
-                    <button>删除</button>
-                </li>
-                <li>
-                    <input type="checkbox" name="" id="" class="per-check">
-                    <img src="img/pro-img1.jpg.webp" alt="">
-                    <div><a href="">韩国进口ZEK芝士深海鳕鱼肠鱼肉火腿肠海味小吃儿童健康即食营养休闲零食 105g</a></div>
-                    <div>￥11.8</div>
-                    <div><span class="reduce">-</span><input type="type" name="" id="" value="1"><span class="plus">+</span></div>
-                    <div>￥11.8</div>
-                    <button>删除</button>
-                </li>
+                
             </ul>
             <div class="cart-b">
                 <div class="fl"><input type="checkbox" class="all-check" />全选</div>
-                <div class="fr">总价：<span>￥1233</span></div>
-                <div class="fr">已选择<span>1</span>件商品</div>
+                <div class="fr">总价：<span id="total-price">￥0.00</span></div>
+                <div class="fr">已选择<span id="total-num">1</span>件商品</div>
                 <button>去结算</button>
             </div>
         </div>
@@ -77,57 +42,142 @@
         $(function () {
             $(".headerWrap").load("head.html");
             $(".footWrap").load("foot.html");
-            // 全选
-            $(".all-check").click(function(){
-                var status =  $(this).prop("checked");
-                $("input[type='checkbox']").prop("checked",status);
-            })
-            $("#cartList").on("click",".per-check",function(){
-                if($(".per-check:checked").length == $(".per-check").length){
-                    $(".all-check").prop("checked",true);
-                }else{
-                    $(".all-check").prop("checked",false);
-                }
-            })
-
-            // 增加数量按钮
-            $("#cartList").on("click",".plus",function(){
-                var num = Number($(this).prev().val())+1;
-                $(this).prev().val(num);
-                
-            })
-            // 减少数量按钮
-            $("#cartList").on("click",".reduce",function(){
-                var num = Number($(this).next().val())-1;
-                $(this).next().val(num);
-                if($(this).next().val()==0){
-                    $(this).next().val(1);
-                }
-            })
-
             if (location.search) {
                 var uid = location.search.split("&")[0].split("=")[1];
                 var uname = location.search.split("&")[1].split("=")[1];
             }
-            if(uid){
+            // 全选
+            $(".all-check").click(function () {
+                
+                var status = $(this).prop("checked");
+                if(status){
+                    $("#cartList").find("li").css("background","#FFF4E8");
+                }else{
+                    $("#cartList").find("li").css("background","#FFF");
+                }
+                $("input[type='checkbox']").prop("checked", status);
+                getTotalPrice();
+            })
+            $("#cartList").on("click", ".per-check", function () {
+                if($(this).prop("checked")){
+                    $(this).parent().css("background","#FFF4E8");
+                }else{
+                    $(this).parent().css("background","#FFF");
+                }
+                
+                allCheck();
+                getTotalPrice();
+            })
+            // 判断是否应该全选
+            function allCheck(){
+                if ($(".per-check:checked").length == $(".per-check").length) {
+                    $(".all-check").prop("checked", true);
+                } else {
+                    $(".all-check").prop("checked", false);
+                }
+                if($(".per-check").length == 0){
+                    $(".all-check").prop("checked", false);
+                }
+            }
+            // 增加数量按钮
+            $("#cartList").on("click", ".plus", function () {
+                var num = Number($(this).prev().val()) + 1;
+                $(this).prev().val(num);
+                var price = $(this).parent().prev().html().substr(1);
+                updateCart($(this).attr("data-id"), num);
+                singleTotalPrice(num, price, $(this).parent().next());
+                getTotalPrice();
+            })
+            // 减少数量按钮
+            $("#cartList").on("click", ".reduce", function () {
+                var num = Number($(this).next().val()) - 1;
+
+                if (num <= 1) {
+                    $(this).next().val(1);
+                } else {
+                    $(this).next().val(num);
+                }
+
+                var price = $(this).parent().prev().html().substr(1);
+                updateCart($(this).attr("data-id"), $(this).next().val());
+                singleTotalPrice($(this).next().val(), price, $(this).parent().next());
+                getTotalPrice();
+            })
+            // 输入框修改数量
+            $("#cartList").on("change", ".num", function () {
+                var pid = $(this).next().attr("data-id");
+                if ($(this).val() == 0) {
+                    $(this).val(1);
+                }
+                updateCart(pid, $(this).val());
+                var price = $(this).parent().prev().html().substr(1);
+                singleTotalPrice($(this).val(), price, $(this).parent().next());
+                getTotalPrice();
+            })
+            // 更新购物车商品数量
+            function updateCart(pid, num) {
+                $.get(
+                    "http://jx.xuzhixiang.top/ap/api/cart-update-num.php",
+                    {
+                        "uid": uid,
+                        "pid": pid,
+                        "pnum": num
+                    }
+                );
+            }
+
+            // 单种类型商品总价
+            function singleTotalPrice(num, price, jqObj) {
+                var totalPrice = (num * price).toFixed(2);
+                jqObj.html("￥" + totalPrice);
+            }
+            // 所有已勾选的商品总价
+            function getTotalPrice() {
+                var checkedArr = $("#cartList").find(".per-check:checked");
+                var totalPrice = 0;
+                var totalNum = 0;
+                for (var i = 0; i < checkedArr.length; i++) {
+                    totalPrice += Number($(checkedArr[i]).parent().find(".sin-tPrice").html().substr(1));
+                    totalNum += Number($(checkedArr[i]).parent().find(".num").val());
+                }
+                console.log(totalNum);
+                $("#total-price").html("￥" + totalPrice.toFixed(2));
+                $("#total-num").html(totalNum);
+            }
+            // 删除购物车按钮
+            $("#cartList").on("click", ".del-btn", function () {
+                $.get(
+                    "http://jx.xuzhixiang.top/ap/api/cart-delete.php",
+                    {
+                        "uid": uid,
+                        "pid": $(this).attr("data-id")
+                    },
+                    (data) => {
+                        console.log(data);
+                        $(this).parent().remove();
+                        allCheck();
+                        getTotalPrice();
+                    }
+                );
+            })
+            if (uid) {
                 // 展示购物车数据
                 var str = "";
                 $.get(
                     "http://jx.xuzhixiang.top/ap/api/cart-list.php",
-                    {"id":uid},
-                    (data)=>{
-                        if(data.data.length!=0){
-                            console.log(data);
+                    { "id": uid },
+                    (data) => {
+                        if (data.data.length != 0) {
                             data.data.forEach((element) => {
-                                str+=`
+                                str += `
                                 <li>
                                     <input type="checkbox" name="" id="" class="per-check">
                                     <img src="${element.pimg}" alt="">
-                                    <div><a href="">${element.pname}</a></div>
+                                    <div><a href="detail.html?uid=${uid}&uname=${uname}&pid=${element.pid}">${element.pname}</a></div>
                                     <div>￥${element.pprice}</div>
-                                    <div><span class="reduce">-</span><input type="type" name="" class="num" value="${element.pnum}"><span class="plus">+</span></div>
-                                    <div>￥${Number(element.pprice*element.pnum).toFixed(2)}</div>
-                                    <button data-id="${element.pid}">删除</button>
+                                    <div><span class="reduce" data-id="${element.pid}">-</span><input type="type" name="" class="num" value="${element.pnum}"><span class="plus" data-id="${element.pid}">+</span></div>
+                                    <div class="sin-tPrice">￥${Number(element.pprice * element.pnum).toFixed(2)}</div>
+                                    <button data-id="${element.pid}" class="del-btn">删除</button>
                                 </li>
                                 `;
                             });
@@ -137,6 +187,7 @@
                 )
 
             }
+
         })
     </script>
 </body>

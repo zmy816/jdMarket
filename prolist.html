@@ -85,8 +85,6 @@
                 // 加入购物车
                 $("#proList").on("click",".add-btn",function(){
                     var pid = $(this).attr("data-id");
-                    console.log(pid);
-                    console.log(uid);
                     $.get(
                         "http://jx.xuzhixiang.top/ap/api/add-product.php",
                         {
