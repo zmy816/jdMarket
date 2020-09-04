@@ -36,7 +36,7 @@ $(function () {
         searchShow();
     })
     function searchShow() {
-        if ($(window).scrollTop() >= clientH) {
+        if ($(window).scrollTop() >= 100) {
 
             $(".searchWrap").show().stop().animate({
                 "top": 0,
